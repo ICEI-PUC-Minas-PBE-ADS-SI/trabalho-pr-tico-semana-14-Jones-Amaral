@@ -9,15 +9,15 @@ Sugerimos o uso das seguintes ferramentas acessíveis: [FullCalendar](https://fu
 
 ## Informações do trabalho
 
-- Nome:
-- Matricula:
-- Proposta de projeto escolhida:
-- Breve descrição sobre seu projeto:
+- Nome: João Vitor Alves Amaral
+- Matricula: 882594
+- Proposta de projeto escolhida: Site de Streaming de Vídeos
+- Breve descrição sobre seu projeto: Criação de um site plataforma de Streaming inspirado em uma das maiores plataformas atuais, utilizando API para gráficos agora.
 
 **Print da tela com a implementação**
 
-<< Coloque aqui uma breve explicação da implementação feita nessa etapa>>
+Implementação feita pelo Charts.js, o tipo escolhido foi o de barra comum, pois achei que é o que mais combina com esse tipo de aplicação, foram utilizados as informações de quantidade de votos em cada filme e no outro a média de avaliações.
 
-<<  COLOQUE A IMAGEM TELA 1 AQUI >>
+![Média das notas de avaliação de cada filme](public/assets/img/Nota-media.png)
 
-<<  COLOQUE A IMAGEM TELA 2 AQUI >>
+![Quantidade de avaliações de cada filme](public/assets/img/Qnt-Av-User.png)
