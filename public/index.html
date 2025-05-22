@@ -76,6 +76,9 @@
                             <li class="nav-item">
                                 <a class="nav-link text-danger" href="cadastro_NetFrix.html">Página de Cadastro</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-danger" href="pagina-grafico.html">Gráfico</a>
+                            </li>
                         </ul>
                         <form class="d-flex" role="search">
                             <input class="form-control me-2" type="search" placeholder="Procure aqui..."
@@ -231,7 +234,7 @@
 
                 for (let i = 2; i < 6; i++) {
                     const filmeDest = filmes[i] //filme individual recebe filmes em indice i(do for)
-                    if(!filmeDest) continue;
+                    if (!filmeDest) continue;
                     strDestaque += `
                     <div class="col-sm-6 col-md-4 col-xl-3 col-xs-12 card border border-0 card-fixo m-3" style="width: 17rem;">
                         <a href="pag-detalhes.html?id=${filmeDest.id}" target="blank">
@@ -248,7 +251,7 @@
 
                 for (let i = 6; i <= 9; i++) {
                     const filmeVoce = filmes[i]
-                    if(!filmeVoce) continue;
+                    if (!filmeVoce) continue;
                     strParaVoce += ` 
                             <div class="col-sm-6 col-md-4 col-xl-3 col-xs-12 card border border-0 card-fixo m-3" style="width: 17rem;">
                                 <a href="pag-detalhes.html?id=${filmeVoce.id}" target="blank">
