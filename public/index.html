@@ -164,23 +164,12 @@
 
             <main class="col-md-10 mt-5">
                 <section>
-                    <a href="pag-detalhes.html?id=1" target="blank">
-                        <img class="banner" id="bannerPrincipal" src="" alt="imagem-banner">
-                        <div class="botassis" style="position: relative;">
-                            <button type="button"
-                                class="btn btn-secondary position-absolute text-danger bg-secondary-subtle border border-danger border-2">
-                                Assistir Agora
-                            </button>
-                        </div>
-                    </a>
-                    <p class="p-3" id="descricaoBanner"></p>
+                    <!-- Banner -->
+                    <div id="bannerPrincipal" style="text-align: center;"></div>
                     <!-- Cards Destaques -->
                     <h2>Destaques</h2>
                     <div class="row justify-content-center" id="destaque"></div>
-                </section>
-
-                <!-- Para você -->
-                <section>
+                    <!-- Para você -->
                     <h2>Para você</h2>
                     <div class="row justify-content-center" id="paraVoce"></div>
                 </section>
@@ -214,27 +203,24 @@
         crossorigin="anonymous"></script>
     <script src="../assets/scripts/app.js"></script>
     <!-- Carregar filmes nos cards e banner -->
-    <script>fetch('http://localhost:3000/filmes')
+    <script>
+        fetch('http://localhost:3000/filmes')
             .then(res => res.json())
             .then(data => {
                 const filmes = data // filmes estão aqui dentro
+                let filmeBanner = filmes[1] /* pega o banner indice 1 */
+                let bannerIndex = "";
+                let strDestaque = "";
+                let strParaVoce = "";
+                console.log(filmeBanner)
 
-                const bannerFilme = filmes[1];
-                const bannerImg = document.getElementById("bannerPrincipal");
-                const bannerDesc = document.getElementById("descricaoBanner");
+                /* Banner */
+                bannerIndex += `<a href="pag-detalhes.html?id=${filmeBanner.id}"><img src="https://image.tmdb.org/t/p/original${filmeBanner.backdrop_path}" alt="${filmeBanner.title}" style="max-width: 800px;"></a>
+                <p style="padding: 30px 300px 0 300px">${filmeBanner.overview}</p>`
 
-                if (bannerFilme && bannerImg && bannerDesc) {
-                    bannerImg.src = `https://image.tmdb.org/t/p/original${bannerFilme.backdrop_path}`;
-                    bannerImg.alt = bannerFilme.title;
-                    bannerImg.parentElement.href = `pag-detalhes.html?id=${bannerFilme.id}`;
-                    bannerDesc.textContent = bannerFilme.overview;
-                }
-                let strDestaque = ""
-                let strParaVoce = ""
-
+                /* Destaque */
                 for (let i = 2; i < 6; i++) {
-                    const filmeDest = filmes[i] //filme individual recebe filmes em indice i(do for)
-                    if (!filmeDest) continue;
+                    const filmeDest = filmes[i] //filme individual recebe filmes em indice i (do for)
                     strDestaque += `
                     <div class="col-sm-6 col-md-4 col-xl-3 col-xs-12 card border border-0 card-fixo m-3" style="width: 17rem;">
                         <a href="pag-detalhes.html?id=${filmeDest.id}" target="blank">
@@ -248,10 +234,9 @@
     
             `
                 }
-
+                /* Para Você */
                 for (let i = 6; i <= 9; i++) {
                     const filmeVoce = filmes[i]
-                    if (!filmeVoce) continue;
                     strParaVoce += ` 
                             <div class="col-sm-6 col-md-4 col-xl-3 col-xs-12 card border border-0 card-fixo m-3" style="width: 17rem;">
                                 <a href="pag-detalhes.html?id=${filmeVoce.id}" target="blank">
@@ -266,8 +251,9 @@
                 }
 
 
-                document.getElementById("destaque").innerHTML = strDestaque // vai imprimir o que estiver dentro de strDestaque
-                document.getElementById("paraVoce").innerHTML = strParaVoce // vai imprimir o que estiver dentro de strParaVoce
+                document.getElementById("destaque").innerHTML = strDestaque;
+                document.getElementById("paraVoce").innerHTML = strParaVoce;
+                document.getElementById("bannerPrincipal").innerHTML = bannerIndex;
             })
             .catch(err => console.error(err))</script>
 
