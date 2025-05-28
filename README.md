@@ -16,7 +16,7 @@ Sugerimos o uso das seguintes ferramentas acessíveis: [FullCalendar](https://fu
 
 **Print da tela com a implementação**
 
-Implementação feita pelo Charts.js, o tipo escolhido foi o de barra comum, pois achei que é o que mais combina com esse tipo de aplicação, foram utilizados as informações de quantidade de votos em cada filme e no outro a média de avaliações.
+Implementação feita pelo Charts.js, os tipos escolhidos foram o de barra comum e gráfico de rosquinha, o primeiro para notas dos filmes e o segundo para quantidade de filme por gênero.
 
 ![Média das notas de avaliação de cada filme](public/assets/img/graf-1.png)
 
